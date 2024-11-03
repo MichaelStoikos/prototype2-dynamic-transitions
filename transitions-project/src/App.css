@@ -1,0 +1,39 @@
+body{
+  background-color: black;
+}
+
+h1{
+  font-family: "Space Mono", sans-serif;
+}
+
+.countries {
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+.countries img {
+  width: 90%;
+}
+
+.scan-line {
+  position: absolute;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #235126;
+  opacity: 0.2;
+  animation: scan 3s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top:0;
+  }
+  100% {
+    top: 100%
+  }
+}
