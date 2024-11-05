@@ -3,14 +3,14 @@ body {
 	color: #235126;
 	font-family: "Space Mono", sans-serif;
 	font-weight: 400;
-	cursor: url("./Crosshair.png"), crosshair;
+	cursor: crosshair;
 	overflow: hidden;
 }
 
 button,
 a,
 Link {
-	cursor: url("./Crosshair.png");
+	cursor: crosshair;
 }
 
 button:hover,
