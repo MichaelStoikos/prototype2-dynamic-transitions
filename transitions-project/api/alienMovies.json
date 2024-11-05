@@ -1,46 +1,44 @@
 [
-    {
-      "title": "Prometheus",
-      "year": "2089",
-      "image": "./prometheus2012.jpg",
-      "description": "A team of explorers discover a clue to the origins of mankind on Earth, leading them on a journey to the darkest corners of the universe."
-    },
-    {
-      "title": "Alien: Covenant",
-      "year": "2104",
-      "image": "./covenant2017.jpg",
-      "description": "The crew of a colony ship stumbles upon a seemingly uncharted paradise, only to encounter terrifying creatures and the mystery of their origins."
-    },
-    {
-      "title": "Alien",
-      "year": "2122",
-      "image": "./alien1979.jpg",
-      "description": "The crew of the commercial spacecraft Nostromo encounters a deadly extraterrestrial lifeform."
-    },
-    {
-      "title": "Alien: Romulus",
-      "year": "2142",
-      "image": "./alienRomulus.jpg",
-      "description": "A new chapter in the Alien universe, with details still classified."
-    },
-    {
-      "title": "Aliens",
-      "year": "2179",
-      "image": "./aliens1986.jpg",
-      "description": "Ripley returns with a unit of colonial marines to face the alien creatures."
-    },
-    {
-      "title": "Alien 3",
-      "year": "2179",
-      "image": "./alien3.jpg",
-      "description": "Ripley crash-lands on a prison planet and must survive against a new breed of alien."
-    },
-    {
-      "title": "Alien: Resurrection",
-      "year": "2381",
-      "image": "./alienResurrection.jpg",
-      "description": "Ripley is resurrected and must fight a new kind of alien aboard a space vessel."
-    }
-    
-  ]
-  
+	{
+		"title": "PROMETHEUS",
+		"year": "2089",
+		"image": "./prometheus2012.jpg",
+		"description": "A team of explorers discover a clue to the origins of mankind on Earth, leading them on a journey to the darkest corners of the universe."
+	},
+	{
+		"title": "ALIEN: COVENANT",
+		"year": "2104",
+		"image": "./covenant2017.jpg",
+		"description": "The crew of a colony ship stumbles upon a seemingly uncharted paradise, only to encounter terrifying creatures and the mystery of their origins."
+	},
+	{
+		"title": "ALIEN",
+		"year": "2122",
+		"image": "./alien1979.jpg",
+		"description": "The crew of the commercial spacecraft Nostromo encounters a deadly extraterrestrial lifeform."
+	},
+	{
+		"title": "ALIEN: ROMULUS",
+		"year": "2142",
+		"image": "./alienRomulus.jpg",
+		"description": "A new chapter in the Alien universe, with details still classified."
+	},
+	{
+		"title": "ALIENS",
+		"year": "2179",
+		"image": "./aliens1986.jpg",
+		"description": "Ripley returns with a unit of colonial marines to face the alien creatures."
+	},
+	{
+		"title": "ALIEN 3",
+		"year": "2179",
+		"image": "./alien3.jpg",
+		"description": "Ripley crash-lands on a prison planet and must survive against a new breed of alien."
+	},
+	{
+		"title": "ALIEN: RESURRECTION",
+		"year": "2381",
+		"image": "./alienResurrection.jpg",
+		"description": "Ripley is resurrected and must fight a new kind of alien aboard a space vessel."
+	}
+]
