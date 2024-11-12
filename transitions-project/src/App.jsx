@@ -4,7 +4,8 @@ import HomePage from './pages/HomePage';
 import LoadingScreen from './components/LoadingScreen';
 import Crew from './pages/Crew';
 import TimelinePage from './pages/AlienTimeline'; 
-import XenomorphEvolution from './pages/XenomorphEvolution'; 
+import XenomorphEvolution from './pages/XenomorphEvolution';
+import ThreeRoom from './pages/ThreeRoom';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +24,7 @@ function App() {
           <Route path="/crew" element={<Crew />} />
           <Route path="/alien-timeline" element={<TimelinePage />} />
           <Route path="/xenomorph-evolution" element={<XenomorphEvolution />} />
+          <Route path="/three-room" element={<ThreeRoom />} />
         </Routes>
       )}
     </Router>

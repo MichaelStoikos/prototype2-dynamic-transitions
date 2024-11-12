@@ -15,7 +15,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
 
     gsap.to(loadingBarRef.current, {
       width: "100%",
-      duration: 10,
+      duration: 2,
       ease: "power2.out",
       onComplete: () => {
         

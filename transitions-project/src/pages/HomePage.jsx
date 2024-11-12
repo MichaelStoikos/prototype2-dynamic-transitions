@@ -1,17 +1,18 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import gsap from "gsap";
 import Typewriter from "typewriter-effect";
 
 const HomePage = () => {
 	const logoRef = useRef(null);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const textElements = document.querySelectorAll(".terminal-text");
 		textElements.forEach((el, i) => {
 			setTimeout(() => {
 				el.classList.add("visible");
-			}, i * 300); // Delay for typewriter effect
+			}, i * 300);
 		});
 
 		gsap.to(logoRef.current, {
@@ -21,6 +22,16 @@ const HomePage = () => {
 			ease: "linear",
 		});
 	}, []);
+
+	const handleExitTerminal = () => {
+		gsap.to(".terminal-container", {
+		  opacity: 0,
+		  duration: 1.5,
+		  onComplete: () => {
+			navigate("/three-room");
+		  },
+		});
+	  };
 
 	return (
 		<div className="terminal-container">
@@ -71,6 +82,9 @@ const HomePage = () => {
 							/>
 						</h1>
 					</Link>
+					<button className="exit-terminal-button" onClick={handleExitTerminal}>
+            			[EXIT TERMINAL]
+          			</button>
 				</div>
 				<div className="homeBottom">
 					STATUS: [SECURE]
