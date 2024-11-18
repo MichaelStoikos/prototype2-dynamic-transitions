@@ -2,7 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { PointerLockControls } from "@react-three/drei";
 import * as THREE from "three";
-import Hangar from "../components/HangarModel";
+//import Hangar from "../components/HangarModel";
+import Hangar2 from "../components/Hangar2Model"
 
 const PlayerControls = ({ speed = 5 }) => {
 	const { camera } = useThree();
@@ -120,7 +121,7 @@ const ThreeRoom = () => {
 			<Canvas camera={{ position: [0, 1.6, 5], fov: 75 }}>
 				<ambientLight intensity={0.5} />
 				<pointLight position={[10, 10, 10]} />
-				<Hangar />
+				<Hangar2 />
 				<PlayerControls speed={30} />
 				<PointerLockControls ref={controlsRef} />
 			</Canvas>
