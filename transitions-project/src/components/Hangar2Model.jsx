@@ -7,7 +7,7 @@ const Hangar2Model = () => {
 
 	useEffect(() => {
 		if (scene) {
-			scene.position.set(0, 99, 15);
+			scene.position.set(0, 90, -10);
 			scene.scale.set(160, 160, 160);
 		}
 	}, [scene]);

@@ -4,6 +4,8 @@ import { PointerLockControls } from "@react-three/drei";
 import * as THREE from "three";
 //import Hangar from "../components/HangarModel";
 import Hangar2 from "../components/Hangar2Model"
+import Terminal from "../components/TerminalModel"
+import Nostromo from "../components/NostromoModel"
 
 const PlayerControls = ({ speed = 5 }) => {
 	const { camera } = useThree();
@@ -118,10 +120,12 @@ const ThreeRoom = () => {
 
 	return (
 		<div style={{ width: "100%", height: "100vh" }}>
-			<Canvas camera={{ position: [0, 1.6, 5], fov: 75 }}>
+			<Canvas camera={{ position: [0, 1.6, 5], fov: 80 }}>
 				<ambientLight intensity={0.5} />
 				<pointLight position={[10, 10, 10]} />
 				<Hangar2 />
+				<Terminal />
+				<Nostromo />
 				<PlayerControls speed={30} />
 				<PointerLockControls ref={controlsRef} />
 			</Canvas>
