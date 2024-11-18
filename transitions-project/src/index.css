@@ -129,6 +129,26 @@ Link:hover {
 	font-size: 25px;
 }
 
+.exit-terminal-button {
+	border: none;
+	text-decoration: none;
+	color: #235126;
+	background: none;
+	font-size: 20px;
+	display: flex;
+	border: rgba(0, 255, 51, 0) 4px solid;
+	margin-left: 1.5%;
+	margin-top: 150px;
+	margin-bottom: -200px;
+	width: 550px;
+}
+
+.exit-terminal-button:hover {
+	color: #66ff66;
+	border: #235126 4px solid;
+	background-color: rgba(35, 81, 38, 0.1);
+}
+
 /*CREW PAGE*/
 
 .flexHeader {

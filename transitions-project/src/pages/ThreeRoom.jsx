@@ -1,12 +1,13 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { PointerLockControls, OrbitControls } from "@react-three/drei";
+import { PointerLockControls } from "@react-three/drei";
 import * as THREE from "three";
-//import Hangar from "../components/HangarModel";
-import Hangar2 from "../components/Hangar2Model"
-import Terminal from "../components/TerminalModel"
-import Nostromo from "../components/NostromoModel"
+import { useNavigate } from "react-router-dom";
+import Hangar2 from "../components/Hangar2Model";
+import Terminal from "../components/TerminalModel";
+import Nostromo from "../components/NostromoModel";
 
+// PlayerControls component remains the same
 const PlayerControls = ({ speed = 5 }) => {
 	const { camera } = useThree();
 	const moveDirection = useRef(new THREE.Vector3());
@@ -67,30 +68,23 @@ const PlayerControls = ({ speed = 5 }) => {
 	}, []);
 
 	useFrame((_, delta) => {
-		// Reset movement vector
 		moveDirection.current.set(0, 0, 0);
 
-		// Set movement based on keypresses
 		if (keys.current.z) moveDirection.current.z += 1;
 		if (keys.current.s) moveDirection.current.z -= 1;
 		if (keys.current.q) moveDirection.current.x -= 1;
 		if (keys.current.d) moveDirection.current.x += 1;
 
-		// Normalize to avoid faster diagonal movement and multiply by speed
 		moveDirection.current.normalize().multiplyScalar(speed * delta);
 
-		// Calculate the direction relative to the camera's rotation matrix
 		const forward = new THREE.Vector3(0, 0, -1).applyQuaternion(camera.quaternion);
 		const right = new THREE.Vector3(1, 0, 0).applyQuaternion(camera.quaternion);
 
-		// Project movement vector onto forward and right directions
 		const forwardMove = forward.multiplyScalar(moveDirection.current.z);
 		const rightMove = right.multiplyScalar(moveDirection.current.x);
 
-		// Add the forward and right movement to get final direction
 		const combinedMove = forwardMove.add(rightMove);
 
-		// Update camera position based on combined movement
 		camera.position.add(combinedMove);
 		camera.position.y = initialY.current;
 	});
@@ -98,20 +92,48 @@ const PlayerControls = ({ speed = 5 }) => {
 	return null;
 };
 
+// New component to handle distance checking
+const TerminalProximityChecker = ({ onProximityChange }) => {
+	const { camera } = useThree();
+	const INTERACTION_RADIUS = 25;
+	const terminalPosition = new THREE.Vector3(0, -20, -10);
+
+	useFrame(() => {
+		const distance = camera.position.distanceTo(terminalPosition);
+		onProximityChange(distance < INTERACTION_RADIUS);
+	});
+
+	return null;
+};
+
 const ThreeRoom = () => {
 	const controlsRef = useRef();
+	const navigate = useNavigate();
+	const [isNearTerminal, setIsNearTerminal] = useState(false);
 
 	useEffect(() => {
-		// Manually handle pointer lock for better control
+		const handleKeyPress = (e) => {
+			if (e.key.toLowerCase() === "e" && isNearTerminal) {
+				document.exitPointerLock();
+				navigate("//");
+			}
+		};
+
+		window.addEventListener("keydown", handleKeyPress);
+		return () => {
+			window.removeEventListener("keydown", handleKeyPress);
+		};
+	}, [isNearTerminal, navigate]);
+
+	useEffect(() => {
 		if (controlsRef.current) {
 			const { current: controls } = controlsRef;
 
 			const onClick = () => {
-				controls.lock(); // Lock the pointer when user clicks the canvas
+				controls.lock();
 			};
 
 			document.addEventListener("click", onClick);
-
 			return () => {
 				document.removeEventListener("click", onClick);
 			};
@@ -119,18 +141,39 @@ const ThreeRoom = () => {
 	}, []);
 
 	return (
-		<div style={{ width: "100%", height: "100vh" }}>
-			<Canvas camera={{ position: [0, 1.6, 5], fov: 80 }}>
-				<ambientLight intensity={0.5} />
-				<pointLight position={[100, 100, 100]} />
-				<Hangar2 />
-				<Terminal />
-				<Nostromo />
-				<OrbitControls />
-				<PlayerControls speed={80} />
-				{/*<PointerLockControls ref={controlsRef} /> */}
-			</Canvas>
-		</div>
+		<>
+			<div style={{ width: "100%", height: "100vh" }}>
+				<Canvas camera={{ position: [0, 1.6, 5], fov: 80 }}>
+					<ambientLight intensity={0.5} />
+					<pointLight position={[100, 100, 100]} />
+					<Nostromo />
+					<Hangar2 />
+					<Terminal />
+					<PlayerControls speed={30} />
+					<PointerLockControls ref={controlsRef} />
+					<TerminalProximityChecker onProximityChange={setIsNearTerminal} />
+				</Canvas>
+			</div>
+			{isNearTerminal && (
+				<div
+					style={{
+						position: "fixed",
+						top: "50%",
+						left: "50%",
+						transform: "translate(-50%, -50%)",
+						color: "white",
+						fontSize: "1.2rem",
+						fontFamily: "Arial, sans-serif",
+						textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)",
+						pointerEvents: "none",
+						userSelect: "none",
+						zIndex: 1000,
+					}}
+				>
+					Press E to interact
+				</div>
+			)}
+		</>
 	);
 };
 

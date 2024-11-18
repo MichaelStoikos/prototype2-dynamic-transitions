@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 
 const NostromoModel = () => {
-	const { scene } = useGLTF(import.meta.env.BASE_URL + "uscss_nostromo.glb");
+	const { scene } = useGLTF(import.meta.env.BASE_URL + "Sulaco.glb");
 
 	useEffect(() => {
 		if (scene) {
-			scene.position.set(0, 250, 0);
-			scene.scale.set(800,800,800);
+			scene.position.set(0, -100, -425);
+			scene.scale.set(125, 125, 100);
 		}
 	}, [scene]);
 
@@ -25,6 +25,6 @@ const NostromoModel = () => {
 		</>
 	);
 };
-useGLTF.preload(import.meta.env.BASE_URL + "uscss_nostromo.glb");
+useGLTF.preload(import.meta.env.BASE_URL + "Sulaco.glb");
 
 export default NostromoModel;

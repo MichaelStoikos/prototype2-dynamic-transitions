@@ -83,7 +83,7 @@ const HomePage = () => {
 						</h1>
 					</Link>
 					<button className="exit-terminal-button" onClick={handleExitTerminal}>
-						[EXIT TERMINAL]
+						<h1>[ EXIT TERMINAL ]</h1>
 					</button>
 				</div>
 				<div className="homeBottom">

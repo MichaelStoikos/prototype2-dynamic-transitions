@@ -17,7 +17,7 @@ function App() {
 	return (
 		<Router basename="/prototype2-dynamic-transitions">
 			{isLoading ? (
-				<LoadingScreen onLoadingComplete={handleLoadingComplete} />
+				<LoadingScreen path="/LoadingScreen" onLoadingComplete={handleLoadingComplete} />
 			) : (
 				<Routes>
 					<Route path="/" element={<HomePage />} />
