@@ -25,13 +25,13 @@ const HomePage = () => {
 
 	const handleExitTerminal = () => {
 		gsap.to(".terminal-container", {
-		  opacity: 0,
-		  duration: 1.5,
-		  onComplete: () => {
-			navigate("/three-room");
-		  },
+			opacity: 0,
+			duration: 1.5,
+			onComplete: () => {
+				navigate("/three-room");
+			},
 		});
-	  };
+	};
 
 	return (
 		<div className="terminal-container">
@@ -83,8 +83,8 @@ const HomePage = () => {
 						</h1>
 					</Link>
 					<button className="exit-terminal-button" onClick={handleExitTerminal}>
-            			[EXIT TERMINAL]
-          			</button>
+						[EXIT TERMINAL]
+					</button>
 				</div>
 				<div className="homeBottom">
 					STATUS: [SECURE]
