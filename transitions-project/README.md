@@ -14,6 +14,7 @@ This project is an interactive, terminal-themed website designed to evoke the re
 - **Crew Details**: Explore the personnel files of iconic characters from the Alien franchise, with typewriter text animations and clickable crew profiles.
 - **Projector-Themed Movie Viewer**: Smooth, cinematic movie transitions using GSAP, simulating a retro projector changing slides for an immersive experience.
 - **Custom Cursor**: A green crosshair cursor that fits the terminal aesthetic and enhances the retro experience.
+- **3D-environment**: fully discoverable 3D-environment in First Person Perspective.
 
 ## Technologies Used
 
@@ -21,6 +22,7 @@ This project is an interactive, terminal-themed website designed to evoke the re
 - **GSAP** (GreenSock Animation Platform) - Advanced animations for smooth transitions and interactive effects.
 - **CSS** - Custom styles to replicate the retro terminal aesthetic.
 - **Typewriter-Effect** - For authentic terminal-like text animations.
+- **React-Three-Fiber** - For 3D-implementation into the website.
 
 ## Installation
 
@@ -60,12 +62,19 @@ https://michaelstoikos.github.io/prototype2-dynamic-transitions/
 
 ## References
 
-**Canvas:** Frontend cursus voor React basiscode
-**W3Schools:** HTML/CSS basis
-**gsap.com:** _spin image:_ https://gsap.com/community/forums/topic/14747-making-image-spin-sideway/
-**Chatgpt** I can't share my conversation because of the fact that I shared pictures of files with him
+**Canvas:** Frontend cursus voor React basiscode.
+**W3Schools:** HTML/CSS basis.
+**gsap.com:** _spin image:_ https://gsap.com/community/forums/topic/14747-making-image-spin-sideway/.
+**Chatgpt:** I can't share my conversation because of the fact that I shared pictures of files with him.
 But I used it for the Timeline carrousel animation.
-**safi.me** _TypewriterJS documentation_ I made the Typewriter effects using the documentation.
+**safi.me:** _TypewriterJS documentation_ I made the Typewriter effects using the documentation.
+**3Dmodel-Environment:** https://sketchfab.com/3d-models/sci-fi-hangar-4b263701219446f1ab13b37a5b98bac5.
+**3Dmodel-Terminal:** https://sketchfab.com/3d-models/terminal-free-2814841f1341478590b682987df57236.
+**3Dmodel-Spaceship:** https://sketchfab.com/3d-models/aliens-uss-sulaco-james-cameron-design-test-ca1f711fb9804686b9868653d3b072b3.
+**React-Three-Fiber Documentation** https://r3f.docs.pmnd.rs/getting-started/introduction.
+**Chatgpt.com**: I asked chatgpt to help me with ZQSD controls and adaptive camera movement in function of controls https://chatgpt.com/share/673bd24d-fa88-8004-a8fb-324f67d69f7c.
+
+
 
 ## License
 
